@@ -2,6 +2,7 @@
 
 // make first guess
 // always the same guess
+use rand::Rng;
 
 pub fn make_first_guess() -> String {
     "salet".to_string()
@@ -12,6 +13,7 @@ pub fn make_first_guess() -> String {
 // finds word and returns guess
 
 pub fn get_guess(word_list: Vec<String>) -> String {
-    println!("word list: {:?}", word_list);
-    "ghost".to_string()
+    let mut rng = rand::thread_rng();
+    let random_number = rng.gen_range(0..word_list.len());
+    word_list[random_number].to_string()
 }

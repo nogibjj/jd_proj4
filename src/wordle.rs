@@ -64,7 +64,7 @@ pub fn process_guess(guess: String, true_word: &&str, word_list: Vec<String>) ->
     println!("{result_str}");
 
     // filter word list based on progress
-    println!("{progress_str}");
+    // println!("{progress_str}");
 
     word_list
 }

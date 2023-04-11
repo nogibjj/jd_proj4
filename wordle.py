@@ -25,7 +25,7 @@ def process_guess(true_word, guess, word_list):
     
     print(styled_string)
 
-    return word_list 
+    return word_list
 
 
 def play_wordle(true_word, word_list):
@@ -37,7 +37,7 @@ def play_wordle(true_word, word_list):
         if guess_count == 0:
             guess = "salet"
         else:
-            guess = get_guess(filtered_word_list)
+            guess = get_guess(filtered_word_list, word_list)
         
         guess_count += 1
 

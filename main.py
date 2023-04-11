@@ -2,6 +2,8 @@ from wordle import play_wordle
 import pandas as pd 
 from databricks import sql
 import os
+import argparse
+ 
 
 def querydb(query="SELECT * from words"):
     with sql.connect(
@@ -24,8 +26,18 @@ def check_allowed_words(word, word_list):
 
 
 def main():
-    input = ["feast", "ghost", "later", "wrath", "salty", "quail", "sleet", "slept", "sleek", "phone",
-             "trope", "might", "patch", "arise"]
+    # create a parser object
+    parser = argparse.ArgumentParser(description = "A WORDLE solver")
+    
+    # add argument
+    parser.add_argument("input", nargs = '*', metavar = "word", type = str,
+                        help = "All the words separated by spaces will be used as input to wordle solver.")
+    
+    # parse the arguments from standard input
+    args = parser.parse_args()
+    
+    # make list of input from args.input 
+    input = args.input
 
     # get list of potential words from databricks
     word_list = pd.DataFrame(querydb(), columns=["words"])

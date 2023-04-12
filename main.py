@@ -3,6 +3,7 @@ import pandas as pd
 from databricks import sql
 import os
 import argparse
+from datetime import datetime
  
 
 def querydb(query="SELECT * from words"):
@@ -26,6 +27,8 @@ def check_allowed_words(word, word_list):
 
 
 def main():
+    start = datetime.now()
+
     # create a parser object
     parser = argparse.ArgumentParser(description = "A WORDLE solver")
     
@@ -53,7 +56,11 @@ def main():
         total_tries += guesses;
 
     length = len(input)
+    print(str(length) + " words solved")
     print("Average tries: " + str(round(total_tries / length, 2)));
+
+    end = datetime.now()
+    print("Seconds taken: " + str((end - start).total_seconds()))
 
     return 
 

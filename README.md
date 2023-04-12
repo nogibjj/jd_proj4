@@ -26,7 +26,7 @@ If there is an unique word that has the highest overall probability (or has the 
 
 ## Architecture 
 
-<img width="800" alt="image" src="https://user-images.githubusercontent.com/86393045/231326863-0c83d6cd-de28-4a4b-bd6d-85712076322d.png">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/86393045/231326863-0c83d6cd-de28-4a4b-bd6d-85712076322d.png">
 
 
 ## Benchmarking 

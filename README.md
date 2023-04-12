@@ -7,7 +7,8 @@ A command-line Wordle solver, which takes in a list of 5-letter words and uses a
 At the end of all guesses, it will display a summary that displays the number of guesses needed for each input as well as the overall average guesses the solver takes at the very end. Unlike the actual game where there is a limit of six guesses, the Wordle solver allows any number of guesses as the goal is to see how well the Wordle solver can perform.
 
 An example of the official Wordle game is shown below:
-## ADD EXAMPLE PICTURE OF ACTUAL WORDLE 
+
+<img width="178" alt="Screen Shot 2023-04-11 at 6 33 41 PM" src="https://user-images.githubusercontent.com/86393045/231324513-d48d04f5-e5ef-434b-a5c4-dd2a49d3aec9.png">
 
 ## Data 
 The primary data source is the list of all 2,311 words that the offical Wordle uses to populate each day's game. This data was found [here](https://github.com/tabatkins/wordle-list), and is stored as a table in Databricks. The data is read into the wordle solver with a SQL query using the Databricks SQL connector functionality. The code to do so was modeled based on the [example documentation](https://docs.databricks.com/dev-tools/python-sql-connector.html). 
@@ -17,7 +18,7 @@ The solver uses `argparse` to create the command-line functionality. The user in
 
 ## Algorithm 
 
-The first guess for each word is fixed using `salet`, which is considered one of the [best first guesses]()https://news.abplive.com/gaming/online-puzzle-wordle-mit-study-says-this-is-the-best-wordle-starter-word-do-you-agree-1554068#:~:text=The%20Optimal%20Word%2C%20According%20To,helmet%2C%20in%20the%2015th%20century). Based on the results of each guess, the list of potential words is filtered for the remaining possibilities. 
+The first guess for each word is fixed using `salet`, which is considered one of the [best first guesses](https://news.abplive.com/gaming/online-puzzle-wordle-mit-study-says-this-is-the-best-wordle-starter-word-do-you-agree-1554068#:~:text=The%20Optimal%20Word%2C%20According%20To,helmet%2C%20in%20the%2015th%20century). Based on the results of each guess, the list of potential words is filtered for the remaining possibilities. 
 
 To make a subsequent guess, the probability that each letter occurs in a given position is calculated for each word. For example, if a potential guess is `there`, the probability of 't' occurring at the first letter across all possible words is calculated, then 'h' for the second letter, and so on. This is done in a vectorized fashion for all remaining words. 
 

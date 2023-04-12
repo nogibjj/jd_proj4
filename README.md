@@ -30,6 +30,7 @@ If there is an unique word that has the highest overall probability (or has the 
 
 
 ## Benchmarking 
+<img width="310" alt="image" src="https://user-images.githubusercontent.com/86393045/231328434-2559a391-afa0-4692-9285-487cd6b00824.png">
 
 
 ## Configuration 
